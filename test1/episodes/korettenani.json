@@ -4,9 +4,9 @@
         {
             "number": 1,
             "title": "الحلقة 1",
-            "date": "2025-10-23 13:52:50",
+            "date": "2025-10-23 23:50:06",
             "link": "/test1/المشاهده.html?id=korettenani&episode=1",
-            "image": "/images/korettenani.webp",
+            "image": "/images/1-korettenani.webp",
             "servers": [
                 {
                     "serverName": "isactive",
