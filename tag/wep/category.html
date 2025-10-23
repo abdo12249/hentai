@@ -262,7 +262,7 @@ iframe {
       // 2. دائمًا حاول جلب البيانات من الشبكة
       try {
         console.log("🔄 جلب بيانات الأنمي من الشبكة...");
-        const response = await fetch("//test1/animes.json");
+        const response = await fetch("/test1/animes.json");
         if (!response.ok) throw new Error("❌ فشل تحميل animes.json من الشبكة");
 
         const data = await response.json();
@@ -346,6 +346,7 @@ iframe {
 
 </body>
 </html>
+
 
 
 
