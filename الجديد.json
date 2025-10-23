@@ -1,5 +1,6 @@
 {
     "animes": [
-        "test1/episodes/guilty-hole.json"
+        "test1/episodes/guilty-hole.json",
+        "test1/episodes/princess-burst.json"
     ]
 }
