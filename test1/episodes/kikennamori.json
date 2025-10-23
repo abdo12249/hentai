@@ -4,9 +4,9 @@
         {
             "number": 1,
             "title": "الحلقة 1",
-            "date": "2025-10-23 13:52:48",
+            "date": "2025-10-23 23:50:04",
             "link": "/test1/المشاهده.html?id=kikennamori&episode=1",
-            "image": "/images/kikennamori.webp",
+            "image": "/images/1-kikennamori.webp",
             "servers": [
                 {
                     "serverName": "isactive",
