@@ -12,13 +12,13 @@ import {
 
 // Firebase Config
 const firebaseConfig = {
-  apiKey: "AIzaSyAQpXUUOLyN2B6IWGb5Ru2Dl8NZPNimTEg",
-  authDomain: "wep1-25124.firebaseapp.com",
-  projectId: "wep1-25124",
-  storageBucket: "wep1-25124.firebasestorage.app",
-  messagingSenderId: "400763524699",
-  appId: "1:400763524699:web:b3d5b77815de059ad9117e",
-  measurementId: "G-ER2GCC7BK4"
+  apiKey: "AIzaSyCNr3gwtfmqmObVHmTS6K9jvAlcGLZmWAs",
+  authDomain: "invertible-pipe-452821-h7.firebaseapp.com",
+  projectId: "invertible-pipe-452821-h7",
+  storageBucket: "invertible-pipe-452821-h7.firebasestorage.app",
+  messagingSenderId: "638279299611",
+  appId: "1:638279299611:web:822fb4f02e5943121f3ebe",
+  measurementId: "G-9RNN5BS7DG"
 };
 
 // Initialize Firebase
