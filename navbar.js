@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initializeSearchSystem(searchInput, animeList) {
-  const dataUrl = "https://myanima.ddns.net/test1/animes.json";
+  const dataUrl = " test1/animes.json";
   let animeData = {};
 
   fetch(dataUrl)
@@ -220,7 +220,7 @@ function initializeSearchSystem(searchInput, animeList) {
 
     results.forEach(([key, anime]) => {
       const item = document.createElement("a");
-      const dynamicUrl = `https://myanima.ddns.net/test1/Anime%20Page%20Dynamic.html?id=${encodeURIComponent(key)}`;
+      const dynamicUrl = ` test1/Anime%20Page%20Dynamic.html?id=${encodeURIComponent(key)}`;
       item.href = dynamicUrl;
 
       item.style.display = "flex";
@@ -233,7 +233,7 @@ function initializeSearchSystem(searchInput, animeList) {
       item.style.transition = "background 0.2s";
 
       const img = document.createElement("img");
-      img.src = anime.image || "https://myanima.ddns.net/img/no-image.webp";
+      img.src = anime.image || " img/no-image.webp";
       img.alt = anime.title;
       img.style.width = "40px";
       img.style.height = "55px";

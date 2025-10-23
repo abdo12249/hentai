@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://myanima.ddns.net/sitemap.xml
+Sitemap:  sitemap.xml
