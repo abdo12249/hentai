@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="عرض أنمي ديناميكي" id="meta-description">
+    <title id="page-title">عرض الأنمي</title>
+    <link rel="stylesheet" href="../CSS/Profile.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="https://abdo12249.github.io/1/navbar/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    
+    <div id="navbar-container"></div>
+    <div class="container">
+        <h1 class="anime-title">جارٍ التحميل...</h1>
+
+        <button id="saveButton" class="not-saved">اضافة للمفضل</button>
+        <script src="../navbar.js"></script>
+
+<div style="max-width:100%;overflow:hidden;">
+    <script type="text/javascript">
+        atOptions = {
+            'key' : 'fcb1605c77b3fd33d38ff238d2ffbd00',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/fcb1605c77b3fd33d38ff238d2ffbd00/invoke.js"></script>
+</div>
+
+<style>
+iframe {
+    max-width: 100% !important;
+    height: auto !important;
+}
+</style>
+
+
+        <div class="content-wrapper">
+            <div class="anime-image">
+                <img src="" alt="صورة الأنمي">
+            </div>
+            <div class="anime-info" id="anime-info"></div>
+        </div>
+
+        <div class="story">
+            <h2>Story:</h2>
+            <p>...</p>
+        </div>
+
+        <div class="episodes-section">
+            <h2>حلقات الأنمي:</h2>
+            <div class="episodes-grid"></div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const animeId = urlParams.get('id');
+
+        fetch('animes.json')
+            .then(res => res.json())
+            .then(data => {
+                const anime = data[animeId];
+                if (!anime) {
+                    document.body.innerHTML = '<h1>الأنمي غير موجود</h1>';
+                    return;
+                }
+
+                // تحديث العنوان والوصف
+                document.title = anime.title + ' - AMK4UP - موقع مشاهدة الانمي';
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) metaDesc.setAttribute('content', anime.title + ' - تعريف الأنمي');
+
+                document.querySelector('.anime-title').textContent = anime.title;
+                document.querySelector('.anime-image img').src = anime.image;
+                document.querySelector('.anime-image img').alt = anime.title;
+                document.querySelector('.story p').textContent = anime.description;
+
+                const infoBox = document.getElementById('anime-info');
+                infoBox.innerHTML = `
+                    <div class="info-item">
+                        <strong>التصنيف:</strong>
+                        ${anime.tags.map(tag => `<button class="icon-button1"><a href="/1/tag/wep/category.html?category=${encodeURIComponent(tag)}">${tag}</a></button>`).join(' ')}
+                    </div>
+                    <div class="info-item"><strong>النوع:</strong> ${anime.type}</div>
+                    <div class="info-item"><strong>حالة الأنمي:</strong> <button class='icon-button1'><a href='/1/tag/wep/category.html?category=${encodeURIComponent(anime.status)}'>${anime.status}</a></button></div>
+                    <div class="info-item"><strong>عدد الحلقات:</strong> ${anime.episodeCount}</div>
+                    <div class="info-item"><strong>مدة الحلقة:</strong> ${anime.duration}</div>
+                    <div class="info-item"><strong>الموسم:</strong> <button class='icon-button1'><a href='/1/tag/wep/category.html?category=${encodeURIComponent(anime.season)}'>${anime.season}</a></button></div>
+                    <div class="info-item"><strong>المصدر:</strong> ${anime.source}</div>
+                    <div class="info-item"><strong>اسم ملف الحلقات:</strong> <code>episodes/${animeId}.json</code></div>
+                `;
+
+                // تحميل ملف الحلقات من ملف منفصل
+                //?id=dr-stone
+                fetch(`episodes/${animeId}.json`)
+                    .then(res => res.json())
+                    .then(episodeData => {
+                        const episodes = Array.isArray(episodeData) ? episodeData : episodeData.episodes;
+                        if (!Array.isArray(episodes)) {
+                            throw new Error("صيغة ملف الحلقات غير صحيحة");
+                        }
+
+                        const episodesGrid = document.querySelector('.episodes-grid');
+                        episodes.forEach(episode => {
+                            const epEl = document.createElement('a');
+                            epEl.href = episode.link;
+                            epEl.className = 'episode-item';
+                            epEl.innerHTML = `
+                                <img src="${episode.image}" alt="الحلقة ${episode.number}">
+                                <div class="episode-number">الحلقة ${episode.number}</div>
+                            `;
+                            episodesGrid.appendChild(epEl);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('خطأ في تحميل ملف الحلقات:', error);
+                        document.querySelector('.episodes-section').style.display = 'none';
+                    });
+            })
+            .catch(error => console.error('خطأ في تحميل بيانات الأنمي:', error));
+
+        fetch('../navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+    </script>
+    <div style="margin: 15px 0; text-align: center;">
+  <script async="async" data-cfasync="false" src="//pl27400501.profitableratecpm.com/cccf85ebe49cd5752952d5b413cfb457/invoke.js"></script>
+  <div id="container-cccf85ebe49cd5752952d5b413cfb457"></div>
+</div>
+
+</body>
+</html>

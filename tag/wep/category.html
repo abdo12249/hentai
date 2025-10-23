@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تصنيف الأنمي</title>
+  <link rel="stylesheet" href="../../CSS/style.css" />
+  <script src="../../navbar.js" defer></script>
+  <link rel="icon" href="/navbar/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main>
+    <div class="section-header">
+      <h1 id="category-title">التصنيف</h1>
+    </div>
+
+	  
+<div style="max-width:100%;overflow:hidden;">
+    <script type="text/javascript">
+        atOptions = {
+            'key' : 'fcb1605c77b3fd33d38ff238d2ffbd00',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/fcb1605c77b3fd33d38ff238d2ffbd00/invoke.js"></script>
+
+	
+</div>
+
+<style>
+iframe {
+    max-width: 100% !important;
+    height: auto !important;
+}
+</style>
+
+    <div class="anime-grid" id="animeGrid"></div>
+
+    <!-- الترقيم -->
+    <div class="pagination" id="pagination" style="text-align:center; margin: 20px;"></div>
+  </main>
+
+  <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+    <div class="spinner"></div>
+    <span>جاري تحميل الأنمي...</span>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category') || '';
+    let currentPage = parseInt(urlParams.get('page') || '1'); // جعلها let لتحديثها
+    const animesPerPage = 24;
+
+    document.getElementById("category-title").textContent = category
+      ? "تصنيف: " + category
+      : "جميع الأنميات";
+
+    let allAnimes = []; // سيتم تخزين جميع الأنميات بعد الفلترة هنا للعرض
+    let originalAnimesFromSource = []; // سيتم تخزين جميع الأنميات التي تم جلبها من المصدر (الشبكة أو الكاش)
+
+    const cacheDuration = 24 * 60 * 60 * 1000; // 24 ساعة بالمللي ثانية
+
+    const DB_NAME = 'AnimeCategoriesDB'; // اسم قاعدة بيانات مختلفة لتجنب التعارض
+    const DB_VERSION = 1;
+    const STORE_NAME = 'animeDataCache';
+    const CACHE_KEY = 'cachedAnimeCategories';
+
+    let db; // متغير للاحتفاظ بنسخة قاعدة بيانات IndexedDB
+
+    // دالة لفتح قاعدة بيانات IndexedDB
+    function openDatabase() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        request.onupgradeneeded = (event) => {
+          db = event.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME);
+          }
+        };
+        request.onsuccess = (event) => {
+          db = event.target.result;
+          resolve(db);
+        };
+        request.onerror = (event) => {
+          console.error("❌ خطأ في فتح IndexedDB:", event.target.error);
+          reject(event.target.error);
+        };
+      });
+    }
+
+    // دالة لقراءة البيانات من IndexedDB
+    async function readFromIndexedDB(key) {
+      if (!db) await openDatabase();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readonly');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.get(key);
+        request.onsuccess = (event) => resolve(event.target.result);
+        request.onerror = (event) => reject(event.target.error);
+      });
+    }
+
+    // دالة لكتابة البيانات إلى IndexedDB
+    async function writeToIndexedDB(key, data) {
+      if (!db) await openDatabase();
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const store = transaction.objectStore(STORE_NAME);
+        const request = store.put(data, key);
+        request.onsuccess = () => resolve();
+        request.onerror = (event) => reject(event.target.error);
+      });
+    }
+
+    // دالة لإظهار شاشة التحميل
+    function showLoading() {
+      document.getElementById('loadingOverlay').style.display = 'flex';
+    }
+
+    // دالة لإخفاء شاشة التحميل
+    function hideLoading() {
+      document.getElementById('loadingOverlay').style.display = 'none';
+    }
+
+    // دالة لتعديل مسار الصورة
+    function adjustPath(path) {
+      // هذه الدالة تعدل المسار ليتناسب مع هيكل المجلدات الخاص بك.
+      // إذا كانت صورك في نفس المجلد أو مسار نسبي مختلف، فقد تحتاج إلى تعديل هذا.
+      return path.startsWith('../') ? path.replace('../', '../../') : path;
+    }
+
+    // دالة لفلترة الأنمي بناءً على التصنيف المحدد في URL
+    function filterAnime(animeList) {
+      if (!category) {
+        return animeList; // إذا لم يكن هناك تصنيف محدد، عرض الكل
+      }
+      return animeList.filter(anime => {
+        const tags = anime.tags || anime.categories || [];
+        const type = anime.type || '';
+        const status = anime.status || '';
+        const season = anime.season || '';
+        // التحقق مما إذا كان التصنيف المحدد موجودًا في أي من الحقول ذات الصلة
+        return tags.includes(category) || type === category || status === category || season === category;
+      });
+    }
+
+    // دالة لعرض صفحة معينة من الأنميات المفلترة
+    function displayPage(animeList) {
+      const start = (currentPage - 1) * animesPerPage;
+      const end = start + animesPerPage;
+      const animeGrid = document.getElementById("animeGrid");
+      animeGrid.innerHTML = ""; // مسح المحتوى الحالي
+
+      animeList.slice(start, end).forEach(anime => {
+        const tags = anime.tags || anime.categories || [];
+        const link = `../../test1/Anime Page Dynamic.html?id=${anime.id}`;
+        const card = document.createElement("div");
+        card.className = "anime-card";
+
+        card.innerHTML = `
+          <a href="${link}" style="text-decoration: none; color: inherit;">
+            <div class="anime-image">
+              <img src="${adjustPath(anime.image)}" alt="${anime.title}" loading="lazy" />
+            </div>
+            <div class="anime-info">
+              <h3>${anime.title}</h3>
+              <p>${anime.description || ''}</p>
+              <div class="anime-meta">
+                <span><strong>النوع:</strong> ${anime.type || ''}</span>
+                <span><strong>التصنيفات:</strong> ${tags.join(', ')}</span>
+                <span><strong>الموسم:</strong> ${anime.season || 'غير متوفر'}</span>
+                <span><strong>الحالة:</strong> ${anime.status || 'غير معروف'}</span>
+                <span class="watch-button">شاهد الآن</span>
+              </div>
+            </div>
+          </a>
+        `;
+
+        animeGrid.appendChild(card);
+      });
+
+      // إضافة مراقب للتحميل التدريجي للصور بعد عرض الصفحة
+      const lazyImages = document.querySelectorAll('#animeGrid img[loading="lazy"]');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.classList.add('loaded');
+              observer.unobserve(img);
+            }
+          });
+        });
+        lazyImages.forEach(img => observer.observe(img));
+      } else {
+        lazyImages.forEach(img => img.classList.add('loaded'));
+      }
+    }
+
+    // دالة لإنشاء أزرار الترقيم (Pagination)
+    function createPagination(totalItems) {
+      const totalPages = Math.ceil(totalItems / animesPerPage);
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement("button");
+        button.textContent = i;
+        button.style.margin = "0 4px";
+        button.style.padding = "5px 10px";
+        button.style.background = (i === currentPage) ? "#ef4444" : "#333";
+        button.style.color = "#fff";
+        button.style.border = "none";
+        button.style.cursor = "pointer";
+        button.style.borderRadius = "6px"; // إضافة حدود مستديرة
+
+        button.onclick = () => {
+          const newUrl = new URL(window.location.href);
+          newUrl.searchParams.set("page", i);
+          if (category) newUrl.searchParams.set("category", category);
+          window.location.href = newUrl.toString(); // إعادة توجيه لتحديث URL والصفحة
+        };
+
+        pagination.appendChild(button);
+      }
+    }
+
+    // دالة رئيسية لتحميل الأنميات وتطبيق التحديث التلقائي
+    async function loadAnimes() {
+      showLoading(); // إظهار شاشة التحميل
+
+      await openDatabase(); // التأكد من فتح IndexedDB
+
+      let cachedAnimesData = null;
+      let networkAnimesData = null;
+      let renderedFromCache = false; // علامة للتحقق مما إذا كان العرض الأولي قد تم من الكاش
+
+      // 1. محاولة التحميل من IndexedDB أولاً للعرض السريع
+      try {
+        const cachedObject = await readFromIndexedDB(CACHE_KEY);
+        const now = Date.now();
+        if (cachedObject && cachedObject.animes && (now - cachedObject.timestamp) < cacheDuration) {
+          cachedAnimesData = cachedObject.animes;
+          originalAnimesFromSource = [...cachedAnimesData]; // تعيين البيانات الأصلية من الكاش
+          allAnimes = filterAnime(originalAnimesFromSource); // فلترة وعرض من الكاش
+          displayPage(allAnimes);
+          createPagination(allAnimes.length);
+          renderedFromCache = true;
+          console.log("✅ تم تحميل بيانات الأنمي من IndexedDB.");
+        } else {
+          console.log("🔄 لا توجد بيانات صالحة في IndexedDB أو انتهت صلاحيتها. سيتم جلب بيانات جديدة.");
+        }
+      } catch (error) {
+        console.error("❌ خطأ في قراءة IndexedDB أثناء التحميل الأولي:", error);
+      }
+
+      // 2. دائمًا حاول جلب البيانات من الشبكة
+      try {
+        console.log("🔄 جلب بيانات الأنمي من الشبكة...");
+        const response = await fetch("/test1/animes.json");
+        if (!response.ok) throw new Error("❌ فشل تحميل animes.json من الشبكة");
+
+        const data = await response.json();
+        networkAnimesData = Object.entries(data).map(([id, anime]) => ({ id, ...anime }));
+
+        // فرز البيانات لضمان مقارنة متسقة
+        networkAnimesData.sort((a, b) => a.id.localeCompare(b.id));
+
+        // الحصول على البيانات الحالية للمقارنة (سواء من الكاش أو فارغة إذا لم يكن هناك كاش صالح)
+        let currentDataForComparison = cachedAnimesData ? [...cachedAnimesData] : [];
+        currentDataForComparison.sort((a, b) => a.id.localeCompare(b.id));
+
+        // مقارنة البيانات الجديدة من الشبكة مع البيانات الحالية
+        if (JSON.stringify(networkAnimesData) !== JSON.stringify(currentDataForComparison)) {
+          console.log("✅ تم اكتشاف تغييرات في البيانات. تحديث IndexedDB والواجهة.");
+          const cacheObject = {
+            animes: networkAnimesData,
+            timestamp: Date.now()
+          };
+          await writeToIndexedDB(CACHE_KEY, cacheObject);
+
+          // تحديث المتغيرات العالمية بالبيانات الجديدة
+          originalAnimesFromSource = [...networkAnimesData];
+          allAnimes = filterAnime(originalAnimesFromSource); // إعادة فلترة وعرض بالبيانات الجديدة
+
+          // إعادة عرض الواجهة بالبيانات الجديدة
+          displayPage(allAnimes);
+          createPagination(allAnimes.length);
+        } else {
+          console.log("✅ البيانات من الشبكة مطابقة للبيانات المخزنة مؤقتًا. لا حاجة للتحديث.");
+          // إذا لم يتم العرض من الكاش في البداية ولكن البيانات مطابقة، يجب أن نعرضها الآن
+          // (هذا يغطي حالة أول تحميل حيث لا يوجد كاش أو انتهت صلاحيته ولكن الشبكة أعادت نفس البيانات)
+          if (!renderedFromCache && allAnimes.length === 0 && originalAnimesFromSource.length === 0) {
+              originalAnimesFromSource = [...networkAnimesData];
+              allAnimes = filterAnime(originalAnimesFromSource);
+              displayPage(allAnimes);
+              createPagination(allAnimes.length);
+          }
+        }
+
+      } catch (networkError) {
+        console.error("❌ خطأ في جلب البيانات من الشبكة:", networkError);
+        // إذا فشل جلب الشبكة ولم يتم العرض من الكاش في البداية، حاول التحميل من الكاش كخيار احتياطي (حتى لو انتهت الصلاحية)
+        if (!renderedFromCache) {
+          try {
+            const cachedObject = await readFromIndexedDB(CACHE_KEY);
+            if (cachedObject && cachedObject.animes) {
+              originalAnimesFromSource = [...cachedObject.animes];
+              allAnimes = filterAnime(originalAnimesFromSource);
+              displayPage(allAnimes);
+              createPagination(allAnimes.length);
+              console.log("⚠️ تم تحميل بيانات الأنمي من IndexedDB كخيار احتياطي بسبب فشل الشبكة.");
+            } else {
+              console.error("❌ لا توجد بيانات في IndexedDB. لا يمكن عرض أي أنميات.");
+              // يمكنك عرض رسالة خطأ للمستخدم هنا
+            }
+          } catch (dbFallbackError) {
+            console.error("❌ خطأ في قراءة IndexedDB كخيار احتياطي:", dbFallbackError);
+          }
+        }
+      } finally {
+        hideLoading(); // إخفاء شاشة التحميل
+      }
+    }
+
+    // بدء التهيئة عند تحميل الصفحة
+    loadAnimes();
+  </script>
+
+  <script>
+    // تحميل شريط التنقل (navbar)
+    fetch('../../navbar.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('navbar-container').innerHTML = data)
+      .catch(error => console.error('❌ خطأ في تحميل الشريط العلوي:', error));
+  </script>
+  <div style="margin: 15px 0; text-align: center;">
+  <script async="async" data-cfasync="false" src="//pl27400501.profitableratecpm.com/cccf85ebe49cd5752952d5b413cfb457/invoke.js"></script>
+  <div id="container-cccf85ebe49cd5752952d5b413cfb457"></div>
+</div>
+
+</body>
+</html>
+
+
+
+

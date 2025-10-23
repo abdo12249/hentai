@@ -1,0 +1,78 @@
+:root {
+    --primary-color1: #adadad;
+    --bg-light1: #006aff;
+    --bg-light: #adadad;
+    --text-dark: #000000;
+    --text-gray-dark: #4b5563;
+    --bg-lighter: #006aff;
+    --bg-lighter2: #ffffff;
+    --bg-lighter3: #00429f;
+}
+
+/* Dark/Light mode toggle */
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+body.light-mode {
+    background-color: var(--bg-light);
+    color:  var(--text-dark);
+}
+
+#themeToggle {
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 0.05rem;
+}
+
+/* Style for the theme icon */
+#themeIcon {
+    transition: transform 0.3s ease;
+}
+
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+    /* style */
+body.light-mode .icon-button:hover {
+    color: var(--primary-color);
+    
+}
+body.light-mode .hero {
+    background: linear-gradient(to bottom, transparent, var(--bg-light));
+}
+
+body.light-mode .anime-card {
+    background-color: var(--bg-lighter);
+}
+body.light-mode .navbar {
+    background-color: var(--bg-light1);
+}
+body.light-mode .watch-button {
+     background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+body.light-mode .rating {
+     background-color: var(--bg-light);
+}
+body.light-mode .anime-meta span {
+    color: var(--text-dark);
+}
+body.light-mode .menu-btn {
+    background-color: var( --bg-lighter3);
+    color: var(--text-dark);
+}
+body.light-mode .search-bar input {
+    background-color: var( --bg-lighter2);
+}
+body.light-mode .sidebar {
+    background-color: var(  --bg-light1);
+    color: var(--text-dark);
+}
+body.light-mode .sidebar ul li a {
+    background-color: var( --bg-lighter2);
+    color: var(--text-dark);
+}

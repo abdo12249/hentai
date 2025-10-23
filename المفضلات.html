@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="navbar.js"defer></script>
+    <title>المواقع المحفوظة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 120px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <h1>المواقع المحفوظة</h1>
+    <ul id="linksList"></ul>
+    <button onclick="clearLinks()">مسح جميع المواقع</button>
+
+    <script>
+        function loadLinks() {
+            let savedSites = localStorage.getItem("savedSites") ? JSON.parse(localStorage.getItem("savedSites")) : [];
+            let list = document.getElementById("linksList");
+            if (!list) return;
+
+            list.innerHTML = "";
+
+            savedSites.forEach(site => {
+                let listItem = document.createElement("li");
+                let anchor = document.createElement("a");
+                anchor.href = site.url;
+                anchor.textContent = site.title;
+                anchor.target = "_blank"; // فتح الموقع في نافذة جديدة
+
+                listItem.appendChild(anchor);
+                list.appendChild(listItem);
+            });
+        }
+
+        function clearLinks() {
+            localStorage.removeItem("savedSites"); // حذف جميع المواقع
+            loadLinks(); // تحديث القائمة
+        }
+
+        window.onload = loadLinks; // تحميل المواقع عند فتح الصفحة
+    </script>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+    </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مواعيد الحلقات</title>
+
+    <link rel="stylesheet" href="../../CSS/E.Dates.css">
+
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <script src="../../navbar.js" defer></script>
+    <link rel="icon" href="https://abdo12249.github.io/1/navbar/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <div id="navbar-container"></div>
+
+
+
+    
+
+    <main>
+
+        <div class="section-header">
+
+            <h1>مواعيد الحلقات</h1>
+
+        </div>
+
+        <div class="anime-day-grid" id="animeGrid"></div>
+
+       <script>
+
+    fetch('مواعيد الحلقات.json')
+
+        .then(response => response.json())
+
+        .then(pages => {
+
+            const animeGrid = document.getElementById('animeGrid');
+
+            
+
+            // إنشاء كائن لتخزين الأنميات حسب الأيام
+
+            const days = {
+
+                "السبت": [],
+
+                "الأحد": [],
+
+                "الاثنين": [],
+
+                "الثلاثاء": [],
+
+                "الأربعاء": [],
+
+                "الخميس": [],
+
+                "الجمعة": []
+
+            };
+
+    
+
+            // تصنيف الأنميات حسب اليوم
+
+            pages.forEach(page => {
+
+                if (days[page.day]) {
+
+                    days[page.day].push(page);
+
+                }
+
+            });
+
+    
+
+            // إنشاء قسم لكل يوم
+
+            for (let day in days) {
+
+                const daySection = document.createElement('section');
+
+                daySection.className = 'anime-day-section';
+
+    
+
+                // إضافة عنوان اليوم
+
+                const dayTitle = document.createElement('h2');
+
+                dayTitle.textContent = day;
+
+                daySection.appendChild(dayTitle);
+
+    
+
+                // إضافة الأنميات لهذا اليوم
+
+                const dayGrid = document.createElement('div');
+
+                dayGrid.className = 'anime-grid';
+
+    
+
+                // إذا كان هناك أنميات في هذا اليوم، نقوم بعرضها
+
+                if (days[day].length > 0) {
+
+                    days[day].forEach(page => {
+
+                        const card = document.createElement('div');
+
+                        card.className = 'anime-card';
+
+                        card.innerHTML = `
+
+                            <div class="anime-image">
+
+                           <img src="${page.image}" alt="${page.name}"loading="lazy">
+
+                                <div class="rating">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+
+                                    </svg>
+
+                                    ${page.rating}
+
+                                </div>
+
+                            </div>
+
+                            <div class="anime-info">
+
+                                <h3>${page.name}</h3>
+
+                                <div class="anime-meta">
+
+                                    <span>${page.episodes} حلقات</span>
+
+                                    <a href="${page.link}" class="watch-button">شاهد الآن</a>
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+                        dayGrid.appendChild(card);
+
+                    });
+
+                } else {
+
+                    const noAnimeMessage = document.createElement('p');
+
+                    noAnimeMessage.textContent = "لا توجد أنميات لهذا اليوم.";
+
+                    dayGrid.appendChild(noAnimeMessage);
+
+                }
+
+    
+
+                daySection.appendChild(dayGrid);
+
+                animeGrid.appendChild(daySection);
+
+            }
+
+        })
+
+        .catch(error => console.error('خطأ في تحميل الصفحات:', error));
+
+    
+
+    
+
+       </script>
+
+       </main>
+
+    
+
+
+
+</script>
+
+
+
+     <!-- تحميل الشريط العلوي من ملف -->
+
+     <script>
+
+        fetch('../../navbar.html')
+
+            .then(response => response.text())
+
+            .then(data => document.getElementById('navbar-container').innerHTML = data);
+
+    </script>
+
+</body>
+
+</html>
+

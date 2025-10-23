@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #ef4444;
+    --bg-dark: #111827;
+    --bg-darker: #1f2937;
+    --text-light: #ffffff;
+    --text-gray: #9ca3af;
+    --bg-light: #ffffff;
+    --text-dark: #000000;
+    --text-gray-dark: #4b5563;
+}
+
+/* الوضع الليلي */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+body.light-mode .episodes {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+}
+
+body.light-mode .episodes ul li {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+body.light-mode .anime-info-header h2,
+body.light-mode .anime-info-header p {
+    color: var(--text-dark);
+}
+
+/* الحاوية العامة */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* الشريط الجانبي */
+.episodes {
+    margin-top: 200px;
+    margin-right: 30px;
+    width: 300px;
+    max-height: calc(100vh - 100px); /* لا يتعدى طول الشاشة */
+    background-color: var(--bg-darker);
+    border-left: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+
+.episodes h2 {
+    text-align: center;
+    color: var(--text-light);
+}
+
+.episodes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.episodes ul li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--bg-dark);
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.episodes ul li:hover {
+    background-color: var(--primary-color);
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+/* عنوان الأنمي */
+.anime-info-header {
+    width: 120%;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.anime-info-header h2,
+.anime-info-header p {
+    color: var(--text-light);
+}
+
+/* أزرار السيرفر */
+.server-buttons {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.server-buttons button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.server-buttons button:hover {
+    background-color: #dc2626;
+}
+
+/* الفيديو */
+.video-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    padding: 0 10px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+/* أزرار التنقل */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 0 10px;
+    margin: 10px auto;
+    gap: 10px;
+}
+
+.navigation-buttons button {
+    flex: 1 1 48%;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navigation-buttons button:hover {
+    background-color: #dc2626;
+}
+
+.episode-item.active {
+    background-color: var(--primary-color, #ef4444);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.server-button.active {
+  background-color: #4b5563;
+  color: #ededed;
+  border: 3px solid #000000;
+}
+
+
+/* التصميم للأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .episodes {
+        margin-top: 0;
+        margin-right: 0;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 10px;
+        margin-top: 0;
+    }
+
+    .anime-info-header {
+        margin-top: 120px;
+        margin-left: -50px;
+    }
+
+
+    .video-container iframe {
+        height: 250px;
+    }
+
+    .navigation-buttons button {
+        width: 100%;
+    }
+}
