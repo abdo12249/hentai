@@ -6,7 +6,7 @@
             "title": "الحلقة 2",
             "date": "2025-10-23 13:53:13",
             "link": "/test1/المشاهده.html?id=purepureperoperoprincess&episode=2",
-            "image": "1/images/purepureperoperoprincess.webp",
+            "image": "/images/purepureperoperoprincess.webp",
             "servers": [
                 {
                     "serverName": "isactive",
@@ -35,7 +35,7 @@
             "title": "الحلقة 1",
             "date": "2025-10-23 13:53:15",
             "link": "/test1/المشاهده.html?id=purepureperoperoprincess&episode=1",
-            "image": "1/images/purepureperoperoprincess.webp",
+            "image": "/images/purepureperoperoprincess.webp",
             "servers": [
                 {
                     "serverName": "isactive",

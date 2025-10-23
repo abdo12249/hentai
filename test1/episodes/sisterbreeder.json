@@ -6,7 +6,7 @@
             "title": "الحلقة 2",
             "date": "2025-10-23 13:52:52",
             "link": "/test1/المشاهده.html?id=sisterbreeder&episode=2",
-            "image": "1/images/sisterbreeder.webp",
+            "image": "/images/sisterbreeder.webp",
             "servers": [
                 {
                     "serverName": "isactive",
@@ -47,7 +47,7 @@
             "title": "الحلقة 1",
             "date": "2025-10-23 13:52:53",
             "link": "/test1/المشاهده.html?id=sisterbreeder&episode=1",
-            "image": "1/images/sisterbreeder.webp",
+            "image": "/images/sisterbreeder.webp",
             "servers": [
                 {
                     "serverName": "isactive",
