@@ -5,7 +5,7 @@
             "number": 2,
             "title": "الحلقة 2",
             "date": "2025-10-23 13:53:00",
-            "link": "1//test1/المشاهده.html?id=mujinekitheanimation&episode=2",
+            "link": "/test1/المشاهده.html?id=mujinekitheanimation&episode=2",
             "image": "1/images/mujinekitheanimation.webp",
             "servers": [
                 {
@@ -46,7 +46,7 @@
             "number": 1,
             "title": "الحلقة 1",
             "date": "2025-10-23 13:53:12",
-            "link": "1//test1/المشاهده.html?id=mujinekitheanimation&episode=1",
+            "link": "/test1/المشاهده.html?id=mujinekitheanimation&episode=1",
             "image": "1/images/mujinekitheanimation.webp",
             "servers": [
                 {
