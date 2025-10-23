@@ -1,8 +1,8 @@
 [
     {
         "name": "Dr. Stone Science Future",
-        "link": "test1/Anime Page Dynamic.html?id=dr-stone",
-        "image": "images/Dr. Stone Science Future.webp",
+        "link": "//test1/Anime Page Dynamic.html?id=dr-stone",
+        "image": "/images/Dr. Stone Science Future.webp",
         "rating": "يعرض الان",
         "episodes": "الحلقة3"
 

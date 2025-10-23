@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تصنيف الأنمي</title>
-  <link rel="stylesheet" href="../../CSS/style.css" />
+  <link rel="stylesheet" href="../..//CSS/style.css" />
   <script src="../../navbar.js" defer></script>
   <link rel="icon" href="/navbar/favicon.ico" type="image/x-icon" />
 </head>
@@ -158,7 +158,7 @@ iframe {
 
       animeList.slice(start, end).forEach(anime => {
         const tags = anime.tags || anime.categories || [];
-        const link = `../../test1/Anime Page Dynamic.html?id=${anime.id}`;
+        const link = `../..//test1/Anime Page Dynamic.html?id=${anime.id}`;
         const card = document.createElement("div");
         card.className = "anime-card";
 
@@ -262,7 +262,7 @@ iframe {
       // 2. دائمًا حاول جلب البيانات من الشبكة
       try {
         console.log("🔄 جلب بيانات الأنمي من الشبكة...");
-        const response = await fetch("/test1/animes.json");
+        const response = await fetch("//test1/animes.json");
         if (!response.ok) throw new Error("❌ فشل تحميل animes.json من الشبكة");
 
         const data = await response.json();
