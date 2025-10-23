@@ -4,9 +4,9 @@
         {
             "number": 2,
             "title": "الحلقة 2",
-            "date": "2025-10-23 13:52:45",
+            "date": "2025-10-23 23:49:59",
             "link": "/test1/المشاهده.html?id=princessburst&episode=2",
-            "image": "/images/princessburst.webp",
+            "image": "/images/2-princessburst.webp",
             "servers": [
                 {
                     "serverName": "isactive",
