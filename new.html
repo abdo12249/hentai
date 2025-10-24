@@ -163,7 +163,6 @@ iframe {
     window.history.pushState({}, "", url);
   }
 
-  // ---------------- Lazy Loading الصور ----------------
   function setupLazyLoading() {
     const lazyImages = document.querySelectorAll("img[data-src]");
     const observer = new IntersectionObserver((entries, obs) => {
@@ -282,7 +281,6 @@ iframe {
       const partDocRef = doc(db, "episodes", `part${i + 1}`);
       const existing = await getDoc(partDocRef);
 
-      // 🔍 تحقق من التغييرات في المحتوى
       if (existing.exists()) {
         const oldData = existing.data().episodes;
         const changed = JSON.stringify(oldData) !== JSON.stringify(partEpisodes);
@@ -297,25 +295,33 @@ iframe {
     }
   }
 
-  // ---------------- تحميل كل الأجزاء ----------------
+  // ---------------- تحميل كل الأجزاء مع ترتيبها ----------------
   async function loadAllParts() {
     const snapshot = await getDocs(collection(db, "episodes"));
-    const parts = [];
+    const partsArray = [];
+
     snapshot.forEach(docSnap => {
       if (docSnap.id.startsWith("part")) {
-        parts.push(...docSnap.data().episodes);
+        const partNumber = parseInt(docSnap.id.replace("part", ""), 10);
+        partsArray.push({ partNumber, episodes: docSnap.data().episodes });
       }
     });
-    parts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    return parts;
+
+    // ترتيب الأجزاء حسب الرقم
+    partsArray.sort((a, b) => a.partNumber - b.partNumber);
+
+    // دمج الحلقات كلها مع الحفاظ على ترتيب الأجزاء
+    const mergedEpisodes = [];
+    partsArray.forEach(part => mergedEpisodes.push(...part.episodes));
+
+    return mergedEpisodes;
   }
 
   // ---------------- التحقق من الجديد أو التغيير ----------------
   async function init() {
     showLoading();
-    const snapshot = await getDocs(collection(db, "episodes"));
-
     let existingEpisodes = [];
+    const snapshot = await getDocs(collection(db, "episodes"));
     if (!snapshot.empty) existingEpisodes = await loadAllParts();
 
     const res = await fetch("الجديد.json");
@@ -338,7 +344,6 @@ iframe {
       });
     });
 
-    // 🔍 اكتشاف الحلقات الجديدة أو المعدلة
     const newOrUpdated = fetchedEpisodes.filter(ep => {
       const old = existingEpisodes.find(o => o.link === ep.link);
       return !old || JSON.stringify(old) !== JSON.stringify(ep);
@@ -372,6 +377,7 @@ iframe {
 </script>
 
 
+
 </main>
 
 <script>
@@ -388,6 +394,7 @@ iframe {
 
 </body>
 </html>
+
 
 
 
