@@ -29,6 +29,31 @@
                     "url": "https://d-s.io/e/5mii9oe2actz"
                 }
             ]
+        },
+        {
+            "number": 3,
+            "title": "الحلقة 3",
+            "date": "2025-10-24 00:05:48",
+            "link": "/test1/المشاهده.html?id=succubus-connect&episode=3",
+            "image": "/images/succubus-connect.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/yaa0qe5z8i7g.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/jgplnCbD#dDYrtR4apM1r5h1qauZRA7ZabOuPpj2nMw2RTyTPwyg.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/eh0fm38dsf92.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-h7rp8b1rlcu6.html"
+                }
+            ]
         }
     ]
 }
