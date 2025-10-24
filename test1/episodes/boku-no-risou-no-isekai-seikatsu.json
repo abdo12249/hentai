@@ -37,6 +37,31 @@
                     "url": "https://d-s.io/e/9pwstu6phdqh"
                 }
             ]
+        },
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:06:18",
+            "link": "/test1/المشاهده.html?id=boku-no-risou-no-isekai-seikatsu&episode=1",
+            "image": "/images/boku-no-risou-no-isekai-seikatsu.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/4p2xpgeaatsh.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/ul413Z5b#i9GcVBj1jPe_DyRl98mEe8-QgnNRAXx_jBEfx_eQHeQ.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/0vzleu0udkvz.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-nrcrq6eed60y.html"
+                }
+            ]
         }
     ]
 }
