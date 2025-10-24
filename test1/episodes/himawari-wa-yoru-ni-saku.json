@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Himawari wa Yoru ni Saku",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:13:25",
+            "link": "/test1/المشاهده.html?id=himawari-wa-yoru-ni-saku&episode=1",
+            "image": "/images/himawari-wa-yoru-ni-saku.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://ghbrisk.com/e/854crsvcf45n.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/uyhQ0Kza#MFyR3NUDJJ57DekFeqUg9HoZI3ZGUiYsuYMJ4oL2QDw.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://ryderjet.com/embed/8qw3carw7yu9.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-q5ut8owvhgzh.html"
+                }
+            ]
+        }
+    ]
+}
