@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Mark Your Kiss The Animation",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:15:30",
+            "link": "/test1/المشاهده.html?id=mark-your-kiss-the-animation&episode=1",
+            "image": "/images/mark-your-kiss-the-animation.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://ghbrisk.com/e/3tfqbkbp7y75.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/i7IkSKRJ#hCj5meWkTuejgmVOwo3TuxdZOkFFN03YP3-334kfGLo.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://ryderjet.com/embed/geqi989mlcol.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-lnotxxqfbfq0.html"
+                }
+            ]
+        }
+    ]
+}
