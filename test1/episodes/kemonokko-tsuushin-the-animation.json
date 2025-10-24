@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Kemonokko Tsuushin The Animation",
+    "episodes": [
+        {
+            "number": 4,
+            "title": "الحلقة 4",
+            "date": "2025-10-24 00:06:51",
+            "link": "/test1/المشاهده.html?id=kemonokko-tsuushin-the-animation&episode=4",
+            "image": "/images/kemonokko-tsuushin-the-animation.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/2um8jtc1hbvk.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/neJ1WRBa#kwl2dsVzCf4H-j9wp8_Kp2gGl6AdvbxvzVzuS-XyRFg.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/yu15oyhebtnf.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-gusieob12847.html"
+                }
+            ]
+        }
+    ]
+}
