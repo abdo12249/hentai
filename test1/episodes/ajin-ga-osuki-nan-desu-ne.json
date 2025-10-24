@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Ajin ga Osuki nan Desu ne",
+    "episodes": [
+        {
+            "number": 2,
+            "title": "الحلقة 2",
+            "date": "2025-10-24 00:05:55",
+            "link": "/test1/المشاهده.html?id=ajin-ga-osuki-nan-desu-ne&episode=2",
+            "image": "/images/ajin-ga-osuki-nan-desu-ne.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/v4nwwamwru8j.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/j8Yg2SBQ#yfGFWmD3RCDs8eYyr5bpAojvp6vQv0NwDPji7oNO-GQ.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/60bya9w8zvuf.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-yt0574108lr0.html"
+                }
+            ]
+        }
+    ]
+}
