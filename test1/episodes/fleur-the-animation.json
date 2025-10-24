@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Fleur The Animation",
+    "episodes": [
+        {
+            "number": 2,
+            "title": "الحلقة 2",
+            "date": "2025-10-24 00:12:57",
+            "link": "/test1/المشاهده.html?id=fleur-the-animation&episode=2",
+            "image": "/images/fleur-the-animation.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://ghbrisk.com/e/aw49wr93cx2y.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/T3IywAAQ#7cS59aMpU3k1wElVxahG1NH8lHervVyPhjxwreEo7bI.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://ryderjet.com/embed/c6ax9otgesj3.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-5djgl7axq35x.html"
+                }
+            ]
+        }
+    ]
+}
