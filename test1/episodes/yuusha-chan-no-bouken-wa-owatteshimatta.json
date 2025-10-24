@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Yuusha-chan no Bouken wa Owatteshimatta!",
+    "episodes": [
+        {
+            "number": 2,
+            "title": "الحلقة 2",
+            "date": "2025-10-24 00:06:23",
+            "link": "/test1/المشاهده.html?id=yuusha-chan-no-bouken-wa-owatteshimatta&episode=2",
+            "image": "/images/yuusha-chan-no-bouken-wa-owatteshimatta.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/03y8g05vlmzp.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/Do4hDRxL#yDzm9g1w37Y5H7QNyKKKzf__kltu8nsymF-Jhp2KRjU.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/h07jbarbpv4d.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-ylg4wv383v7x.html"
+                }
+            ]
+        }
+    ]
+}
