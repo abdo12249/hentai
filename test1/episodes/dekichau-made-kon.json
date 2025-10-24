@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Dekichau made Kon",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:05:36",
+            "link": "/test1/المشاهده.html?id=dekichau-made-kon&episode=1",
+            "image": "/images/dekichau-made-kon.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/nxl43y0ufjaz.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/y05gDSwA#1-eDyJE2jYMQtn3wBtcnZc4uq26G5Lh3rOQv9Cx6BsU.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/od6wcaeopd4m.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-aeqdhh3prtc1.html"
+                }
+            ]
+        }
+    ]
+}
