@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Inshoku Ou Demar",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:06:29",
+            "link": "/test1/المشاهده.html?id=inshoku-ou-demar&episode=1",
+            "image": "/images/inshoku-ou-demar.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/7wwpzdcozkcd.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/GOJQjKLK#7ilGRnOHyKOmbdWZ1mJa4btb5nOq0U_nuFRpEXWRJYQ.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/g00k0amm98o2.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-53ypby61lsh9.html"
+                }
+            ]
+        }
+    ]
+}
