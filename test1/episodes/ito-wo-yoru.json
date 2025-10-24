@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Ito wo Yoru",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:08:32",
+            "link": "/test1/المشاهده.html?id=ito-wo-yoru&episode=1",
+            "image": "/images/ito-wo-yoru.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://cybervynx.com/e/d57qk34v4wrc.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/uXIFTAwJ#pDXV9yN9ocrLh465sxPUNjE_v6FxCJjqhbazaHTvISY.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://smoothpre.com/embed/htv4a4b9hnv0.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-5zt80vm7rllc.html"
+                }
+            ]
+        }
+    ]
+}
