@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Yarakashi",
+    "episodes": [
+        {
+            "number": 2,
+            "title": "الحلقة 2",
+            "date": "2025-10-24 00:15:11",
+            "link": "/test1/المشاهده.html?id=yarakashi&episode=2",
+            "image": "/images/yarakashi.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://ghbrisk.com/e/1zhobr14jr06.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/fmgHBQBA#lRguPgZlkrOLeIXt3NkGFU4WdxGPbg0UenOS7G2FqXs.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://ryderjet.com/embed/x1r3cwf6p33a.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-3iykyv363ktk.html"
+                }
+            ]
+        }
+    ]
+}
