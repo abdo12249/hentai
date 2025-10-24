@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Imaria",
+    "episodes": [
+        {
+            "number": 6,
+            "title": "الحلقة 6",
+            "date": "2025-10-24 00:06:07",
+            "link": "/test1/المشاهده.html?id=imaria&episode=6",
+            "image": "/images/imaria.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/wbfsj8kj9gr1.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/WgpTzZrS#WrWOIW2wqFBbgtUeTVsDJ61dGRUSPSwuqwA5TFBMBzQ.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/y1w3aouiibnv.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-0i2ngm2zfaw0.html"
+                }
+            ]
+        }
+    ]
+}
