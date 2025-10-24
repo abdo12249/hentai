@@ -41,6 +41,31 @@
                     "url": "https://dsvplay.com/e/ftwb6ymxla1l"
                 }
             ]
+        },
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:06:57",
+            "link": "/test1/المشاهده.html?id=amai-ijiwaru&episode=1",
+            "image": "/images/amai-ijiwaru.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/2i77mj41ydud.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/yeJzSJyS#iIrNBSVy_XXM1pVjNpuOPhTeDKKIflzhdTYy_XT2sK8.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/muaziku2skao.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-2eh8x6ma16oq.html"
+                }
+            ]
         }
     ]
 }
