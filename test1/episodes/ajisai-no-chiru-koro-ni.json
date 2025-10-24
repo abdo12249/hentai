@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Ajisai no Chiru Koro ni",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:13:48",
+            "link": "/test1/المشاهده.html?id=ajisai-no-chiru-koro-ni&episode=1",
+            "image": "/images/ajisai-no-chiru-koro-ni.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://ghbrisk.com/e/ckbvwbbsend7.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/iuYQyRjD#e2f4gwULEJjoXhkJEl8DeR-l4AAlF8lxwIeuXZL85U8.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://ryderjet.com/embed/l6ac51yxrrm1.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-uh3pf2qxrwz2.html"
+                }
+            ]
+        }
+    ]
+}
