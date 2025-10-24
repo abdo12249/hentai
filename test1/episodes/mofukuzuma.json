@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Mofukuzuma",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:07:32",
+            "link": "/test1/المشاهده.html?id=mofukuzuma&episode=1",
+            "image": "/images/mofukuzuma.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/ij8fozsy7f07.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/TXhx3TJT#zKxcYVa1NCmZRywHdToovngt7kSDIWto-EhfaZ1ltpo.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://smoothpre.com/embed/ayenytr3merx.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-9cmeq7adafeq.html"
+                }
+            ]
+        }
+    ]
+}
