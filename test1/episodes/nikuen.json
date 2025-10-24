@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Nikuen",
+    "episodes": [
+        {
+            "number": 2,
+            "title": "الحلقة 2",
+            "date": "2025-10-24 00:07:26",
+            "link": "/test1/المشاهده.html?id=nikuen&episode=2",
+            "image": "/images/nikuen.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/gcu13m5lz65t.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/vPIy3A7A#xIbB7K0fjwiLZpqIXb-mlPCBIXGEloOU9LQx7f3PBwo.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/20hj6xpq5860.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-l1nfkhatqe9v.html"
+                }
+            ]
+        }
+    ]
+}
