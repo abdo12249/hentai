@@ -1,0 +1,30 @@
+{
+    "animeTitle": "My Mother The Animation",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:13:42",
+            "link": "/test1/المشاهده.html?id=my-mother-the-animation&episode=1",
+            "image": "/images/my-mother-the-animation.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://ghbrisk.com/e/i3yt54k643kf.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/qy5ATSIZ#DJWE7kfZyUCgEud9txj2pXy9dDDufBJmlJBzwkOyh4g.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://ryderjet.com/embed/8o6585d4dlua.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-gyyodq2kr4gt.html"
+                }
+            ]
+        }
+    ]
+}
