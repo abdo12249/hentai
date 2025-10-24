@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Yumemiru Otome",
+    "episodes": [
+        {
+            "number": 3,
+            "title": "الحلقة 3",
+            "date": "2025-10-24 00:09:30",
+            "link": "/test1/المشاهده.html?id=yumemiru-otome&episode=3",
+            "image": "/images/yumemiru-otome.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://cybervynx.com/e/kbu0ukd371pm.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/BhQRmbqY#ZYRwKfrKPBgzS6du_0xZq4wzuYNztR7dptDXIm5IO5s.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://smoothpre.com/embed/dzpn9w8lyr3i.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-d1twurj33ofe.html"
+                }
+            ]
+        }
+    ]
+}
