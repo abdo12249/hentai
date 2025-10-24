@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Dearest Blue",
+    "episodes": [
+        {
+            "number": 3,
+            "title": "الحلقة 3",
+            "date": "2025-10-24 00:06:35",
+            "link": "/test1/المشاهده.html?id=dearest-blue&episode=3",
+            "image": "/images/dearest-blue.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://dhcplay.com/e/kp3zn4ujiigq.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/nThQ3C5K#dCSo6uS7eKtg3Rcx6ynYi7fz4o2z0RQIsIRFxVeUhDI.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://movearnpre.com/embed/k52nyingn7df.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-tjwzzdzk1sfj.html"
+                }
+            ]
+        }
+    ]
+}
