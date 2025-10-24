@@ -50,6 +50,31 @@
                     "url": "https://rubyvidhub.com/embed-23z0q0wgnw0y.html"
                 }
             ]
+        },
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:15:57",
+            "link": "/test1/المشاهده.html?id=shounen-ga-otona-ni-natta-natsu&episode=1",
+            "image": "/images/shounen-ga-otona-ni-natta-natsu.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://ghbrisk.com/e/ucn8qbyekuhw.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/mqZhUL6B#y9vlO4zGU56kNLLeh0o3FdMsD1EJzCsCnT2fPPhG3AA.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://ryderjet.com/embed/013yccm3s56y.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-dbobk2s3snhr.html"
+                }
+            ]
         }
     ]
 }
