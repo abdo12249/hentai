@@ -127,7 +127,7 @@ iframe {
 <script type="module">
   // ---------------- Firebase الإعداد ----------------
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-  import { getFirestore, collection, getDocs, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+  import { getFirestore, collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyCNr3gwtfmqmObVHmTS6K9jvAlcGLZmWAs",
@@ -145,10 +145,10 @@ iframe {
   // ---------------- إعدادات عامة ----------------
   const maxItemsPerPage = 20;
   const EPISODES_PER_PART = 500;
-  let loadedParts = {}; // لتخزين الأجزاء اللي تم تحميلها
-  let allEpisodes = []; // جميع الحلقات اللي اتحملت فعلاً
+  let loadedParts = {};
+  let allEpisodes = [];
 
-  // ---------------- أدوات واجهة المستخدم ----------------
+  // ---------------- واجهة المستخدم ----------------
   function showLoading() { document.getElementById("loadingOverlay").style.display = "flex"; }
   function hideLoading() { document.getElementById("loadingOverlay").style.display = "none"; }
 
@@ -163,7 +163,7 @@ iframe {
     window.history.pushState({}, "", url);
   }
 
-  // ---------------- Lazy Loading الصور ----------------
+  // ---------------- Lazy Loading للصور ----------------
   function setupLazyLoading() {
     const lazyImages = document.querySelectorAll("img[data-src]");
     const observer = new IntersectionObserver((entries, obs) => {
@@ -184,11 +184,9 @@ iframe {
     showLoading();
     updateURL(pageNumber);
 
-    // احسب النطاق
     const startIndex = (pageNumber - 1) * maxItemsPerPage;
     const endIndex = startIndex + maxItemsPerPage;
 
-    // تحقق إن الجزء المناسب متحمل
     await ensurePartLoadedForIndex(startIndex);
 
     const animeGrid = document.getElementById("animeGrid");
@@ -254,21 +252,30 @@ iframe {
 
   // ---------------- تحميل جزء معين ----------------
   async function loadPart(partNumber) {
-    if (loadedParts[partNumber]) return; // متحمل بالفعل
+    if (loadedParts[partNumber]) return;
 
     const partDocRef = doc(db, "episodes", `part${partNumber}`);
     const docSnap = await getDoc(partDocRef);
-    if (docSnap.exists()) {
-      const data = docSnap.data().episodes;
+
+    if (!docSnap.exists()) {
+      console.warn(`❌ المستند part${partNumber} غير موجود في Firestore`);
+      return;
+    }
+
+    const docData = docSnap.data();
+    const data = docData.episodes;
+
+    if (Array.isArray(data)) {
       allEpisodes.push(...data);
       loadedParts[partNumber] = true;
       console.log(`📦 تم تحميل part${partNumber} (${data.length} حلقة)`);
+    } else {
+      console.warn(`⚠️ المستند part${partNumber} لا يحتوي على مصفوفة episodes`, docData);
     }
   }
 
   // ---------------- تحديد الجزء المطلوب ----------------
   async function ensurePartLoadedForIndex(index) {
-    // كل جزء فيه EPISODES_PER_PART
     const neededPart = Math.floor(index / EPISODES_PER_PART) + 1;
 
     const snapshot = await getDocs(collection(db, "episodes"));
@@ -277,16 +284,14 @@ iframe {
       .sort((a, b) => {
         const aNum = parseInt(a.id.replace("part", ""));
         const bNum = parseInt(b.id.replace("part", ""));
-        return aNum - bNum; // الأقدم -> الأحدث
+        return aNum - bNum;
       });
 
     const totalParts = sortedDocs.length;
     const targetPart = Math.min(neededPart, totalParts);
 
-    // حمل الجزء المطلوب فقط
     await loadPart(targetPart);
 
-    // رتب الكل بعد كل تحميل
     allEpisodes.sort((a, b) => new Date(a.date) - new Date(b.date));
   }
 
@@ -294,7 +299,6 @@ iframe {
   async function init() {
     showLoading();
 
-    // حمل أول جزء حديث (آخر part)
     const snapshot = await getDocs(collection(db, "episodes"));
     const allParts = snapshot.docs
       .filter(docSnap => docSnap.id.startsWith("part"))
@@ -310,7 +314,6 @@ iframe {
     const latestPart = allParts[allParts.length - 1];
     await loadPart(latestPart);
 
-    // رتب جميع الحلقات من الأقدم إلى الأحدث
     allEpisodes.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     const currentPage = getPageFromURL();
@@ -321,6 +324,7 @@ iframe {
 
   init();
 </script>
+
 
 
 
@@ -340,6 +344,7 @@ iframe {
 
 </body>
 </html>
+
 
 
 
