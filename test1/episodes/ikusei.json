@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Ikusei",
+    "episodes": [
+        {
+            "number": 2,
+            "title": "الحلقة 2",
+            "date": "2025-10-24 00:08:20",
+            "link": "/test1/المشاهده.html?id=ikusei&episode=2",
+            "image": "/images/ikusei.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://cybervynx.com/e/k24dlu5aazjl.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/zCJjFZ7Z#7Ul3Wx3Rn5teEibCViS6FsnSPUquhRoZIp0AjUHoRPo.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://smoothpre.com/embed/0pxvy7pwev5o.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-xbhwhag1oi6p.html"
+                }
+            ]
+        }
+    ]
+}
