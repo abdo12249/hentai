@@ -1,0 +1,30 @@
+{
+    "animeTitle": "Aikagi The Animation",
+    "episodes": [
+        {
+            "number": 1,
+            "title": "الحلقة 1",
+            "date": "2025-10-24 00:07:56",
+            "link": "/test1/المشاهده.html?id=aikagi-the-animation&episode=1",
+            "image": "/images/aikagi-the-animation.webp",
+            "servers": [
+                {
+                    "serverName": "isactive",
+                    "url": "https://cybervynx.com/e/h468s1tw4zda.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://mega.nz/embed/iThWkKQK#ln9F-aN_knwWjlynPOoptwuHSyFaqOuzqiLkIeFqKAA.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://smoothpre.com/embed/ib5gof5n5rdo.html"
+                },
+                {
+                    "serverName": "server",
+                    "url": "https://rubyvidhub.com/embed-fw7agsgzizui.html"
+                }
+            ]
+        }
+    ]
+}
