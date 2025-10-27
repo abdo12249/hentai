@@ -62,14 +62,17 @@
     </head>
     
 <body>
-<div class="cf-turnstile" data-sitekey="<0x4AAAAAAB86MTJs0Owiqszl>"></div>
-<div
-  class="cf-turnstile"
-  data-sitekey="<YOUR-SITE-KEY>"
-  data-theme="light"
-  data-size="normal"
-  data-callback="onSuccess"
-></div>
+<!-- ✅ Cloudflare Turnstile Widget -->
+<form id="secureForm" action="/verify.php" method="POST" style="text-align:center; margin: 20px auto;">
+  <div 
+    class="cf-turnstile" 
+    data-sitekey="0x4AAAAAAB86MTJs0Owiqszl"
+    data-theme="light"
+    data-size="normal">
+  </div>
+  <button type="submit" style="margin-top: 10px;">تأكيد التحقق</button>
+</form>
+
     
     <div id="navbar-container"></div>
 
@@ -601,6 +604,7 @@ iframe {
 
 </body>
 </html>
+
 
 
 
